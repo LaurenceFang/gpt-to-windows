@@ -9,4 +9,7 @@ backup_pre_p0/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+*.db
+*.db-shm
+*.db-wal
 *.log
