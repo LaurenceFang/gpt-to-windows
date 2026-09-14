@@ -1,0 +1,12 @@
+node_modules/
+dist/
+state/
+logs/
+backup_pre_p0/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.log
