@@ -1,8 +1,12 @@
 # GPT-to-Windows
 
-Self-hosted MCP gateway connecting GPT-based agents to controlled local Windows capabilities.
+## MCP Agent Gateway
 
-This project is intended for a personally controlled Windows computer. It exposes local tools through an authenticated MCP endpoint and is **not** a sandbox or a general-purpose public service.
+An authenticated, self-hosted MCP gateway that connects AI agents with local Windows capabilities through tool interfaces.
+
+The project demonstrates an agent infrastructure pattern: expose practical local capabilities through an authenticated MCP endpoint while keeping execution on a user-controlled Windows host.
+
+This is **not** a sandbox or a general-purpose public service. It is designed for a personally controlled Windows computer.
 
 ## What it provides
 
@@ -14,6 +18,7 @@ This project is intended for a personally controlled Windows computer. It expose
 - ComfyUI workflow and job operations
 - Optional DashScope/Qwen visual analysis
 - OAuth authorization code flow with PKCE
+- Authenticated local capability access for AI agents
 
 ## Architecture
 
@@ -40,6 +45,7 @@ MCP Relay (Express + MCP SDK)
 - OAuth tokens are stored as hashes in a local SQLite database. The database is runtime state and must not be committed.
 - Request lifecycle and managed process events are logged locally.
 - The relay intentionally operates with the current Windows user's permissions. It does not provide a filesystem sandbox, command sandbox, or per-tool OS account isolation.
+- The current implementation provides authenticated tool access and explicit user authorization, but not fine-grained per-tool permission isolation.
 - Only run it on a machine and network boundary you control. Review every tool call before using it with sensitive data.
 
 ## Local setup
